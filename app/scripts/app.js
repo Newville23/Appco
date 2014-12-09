@@ -1,7 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc overview
+/*
+ * @ngdoc overview* 
  * @name yoAngularApp
  * @description
  * # yoAngularApp
@@ -29,9 +29,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/material',{
+      .when('/material', {
         templateUrl: 'views/material.html',
-        controller: 'MaterCtrl'
+        controller: 'MaterialCtrl',
+       
       })
       .otherwise({
         redirectTo: '/'

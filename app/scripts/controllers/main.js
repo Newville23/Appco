@@ -8,7 +8,7 @@
  * Controller of the yoAngularApp
  */
 angular.module('yoAngularApp')
-  .controller('MainCtrl', function ($scope) {
+	  .controller('MaintCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
