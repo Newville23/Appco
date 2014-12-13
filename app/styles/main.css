@@ -77,3 +77,64 @@ body {
     border-bottom: 0;
   }
 }
+
+/* Style of a custom popover*/
+.pop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  max-width: 276px;
+  text-align: left;
+  white-space: normal;
+  background: #fff;
+  margin: 15px;
+  padding: 8px 0px;
+  border-radius: 2px;
+
+-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+
+}
+
+.pop.top {
+  margin-top: -10px;
+}
+.pop.right {
+  margin-left: 10px;
+}
+.pop.bottom {
+  margin-top: 10px;
+}
+.pop.left {
+  margin-left: -10px;
+}
+.pop-title {
+  padding: 8px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  background-color: #fff;
+  border-bottom: 1px solid #ebebeb;
+  
+}
+.pop-title h3{
+  display: inline;
+  
+}
+.pop-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pop-content li{
+  padding-right: 48px;
+  padding-left:24px;
+
+  }
+.pop-content li:hover{
+  background-color: rgba(0, 0, 0, 0.035);
+ }
+

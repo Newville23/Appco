@@ -9,9 +9,10 @@
 angular.module('yoAngularApp')
   .directive('dvPopover', function () {
     return {
-      template: '<md-button class="{{atribute.class}}">{{atribute.label}}</md-button>',
       restrict: 'E',
-      link: function postLink(scope, element) {
+      templateUrl: 'views/popover.html'
+
+      /*link: function postLink(scope, element) {
 
       		var properties = {
       			content: scope.atribute.bodypop,
@@ -22,6 +23,6 @@ angular.module('yoAngularApp')
 
             $(element).popover(properties);
 
-      }
+      }*/
     };
   });

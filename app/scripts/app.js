@@ -32,7 +32,6 @@ angular
       .when('/material', {
         templateUrl: 'views/material.html',
         controller: 'MaterialCtrl',
-       
       })
       .otherwise({
         redirectTo: '/'

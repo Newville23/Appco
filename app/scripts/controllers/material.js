@@ -9,6 +9,13 @@
  */
 angular.module('yoAngularApp')
   .controller('MaterialCtrl', function($scope) {
-  	$scope.atribute = {label: 'popover', class: 'md-raised md-primary md-default-theme', placement: 'right', bodypop: 'Aqui estoy', title: 'Ubica'};
+  	$scope.atribute = {label: 'popover', class: 'md-raised md-primary md-default-theme', placement: 'right', title: 'Ubica'};
+  	$scope.tools = [{content: 'tool-1'}, {content: 'tool-2'}, {content: 'tool-3'}]
+  	$scope.show = function(){
+  		 $scope.myVar = !$scope.myVar; 
+  	};
+  	$scope.close = function(){
+  		$scope.myVar = !$scope.myVar;
+  	};
   });
 
