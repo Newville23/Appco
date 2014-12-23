@@ -12,17 +12,6 @@ angular.module('yoAngularApp')
       restrict: 'E',
       templateUrl: 'views/popover.html'
 
-      /*link: function postLink(scope, element) {
 
-      		var properties = {
-      			content: scope.atribute.bodypop,
-      			placement: scope.atribute.placement,
-      			html: true,
-      			tittle: scope.atribute.title
-      		};
-
-            $(element).popover(properties);
-
-      }*/
     };
   });

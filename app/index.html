@@ -10,20 +10,55 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="yoAngularApp">
+  <body layout="row"  style="padding:0;" ng-app="yoAngularApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
+
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2 " md-component-id="left"md-is-locked-open="$media('gt-md')">
+      <md-toolbar >
+        <h1 class="md-toolbar-tools"><a href="#/"> Solutions</a></h1>
+      </md-toolbar>
+      <md-content  >
+        <md-button  class="md-primary" hide-gt-md>
+          Close Sidenav Left
+        </md-button>
+        <md-button ng-href="#/proveedores" class="menu-item menu-title md-menu-item" >proveedores</md-button>
+        <md-button ng-href="#/materiales" class="menu-item menu-title md-menu-item">materiales</md-button>
+        <md-button ng-href="#/productos" class="menu-item menu-title md-menu-item">productos</md-button>
+        <md-button ng-href="#/compras" class="menu-item menu-title md-menu-item">o.compra</md-button>
+
+        <hr>
+        <p hide-md show-gt-md class="md-padding">
+          Opciones que te ayudaran a realizar tareas cotidianas de forma optima.
+        </p>
+      </md-content>
+    </md-sidenav>
+
+    <div layout="column" layout-fill tabindex="-1">
+      <md-toolbar >
+      <h2 class="md-toolbar-tools">my tag</h2>
+    </md-toolbar>
+    <md-content ng-view="" layout="column" class="md-padding">
+
+    <md-content>
+  </div>
+
+</div>
+
+
+
+<!--     <div >
+      <div flex class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a ng-href="#">Home</a></li>
           <li><a ng-href="#/about">About</a></li>
@@ -33,13 +68,13 @@
         <h3 class="text-muted">yoAngular</h3>
       </div>
 
-      <div ng-view=""></div>
+      <md-content flex ng-view=""></md-content>
 
-      <div class="footer">
+      <div flex class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
-    </div>
-
+    </div> -->
+    
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -79,8 +114,8 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/material.js"></script>
+        <script src="scripts/controllers/proveedor.js"></script>
+        <script src="scripts/controllers/materiales.js"></script>
         <script src="scripts/directives/dvpopover.js"></script>
         <!-- endbuild -->
 </body>

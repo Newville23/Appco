@@ -19,19 +19,32 @@ angular
     'ngTouch'
 
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $mdThemingProvider) {
+
+    $mdThemingProvider.theme('default')
+    .primaryColor('grey', {
+      'default': '500', // by default use shade 400 from the gray palette for primary intentions
+      'hue-1': '900', // use shade 100 for the <code>md-hue-1</code> class
+      'hue-2': '700', // use shade 600 for the <code>md-hue-2</code> class
+      'hue-3': '300' // use shade A100 for the <code>md-hue-3</code> class
+    });
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/proveedores', {
+        templateUrl: 'views/proveedor.html',
+        controller: 'ProveedorCtrl'
       })
-      .when('/material', {
+      .when('/materiales', {
         templateUrl: 'views/material.html',
-        controller: 'MaterialCtrl',
+        controller: 'MaterialesCtrl',
+      })
+      .when('/compras', {
+        templateUrl: 'views/material.html',
+        controller: 'MaterialesCtrl',
       })
       .otherwise({
         redirectTo: '/'
