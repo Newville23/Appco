@@ -7,7 +7,7 @@
  * Controller of the yoAngularApp
  */
 angular.module('yoAngularApp')
-  .controller('ProveedorCtrl', function ($scope) {
+  .controller('ProveedorCtrl', function ($scope,  $mdDialog) {
 $scope.todos = [
       { face: 'images/yeoman.png', name: 'One', tel: '3241922', nit: 'Tabs will become paginated if there isnt enough room for them.'},
       { face: 'images/yeoman.png', name: 'Two', tel: '3241922', nit: 'You can swipe left and right on a mobile device to change tabs.'},
@@ -22,6 +22,21 @@ $scope.todos = [
     ];
 
     $scope.selectedIndex = 3;
+
+    $scope.showConfirm = function(ev) {
+    var confirm = $mdDialog.confirm()
+      .title('Would you like to delete your debt?')
+      .content('All of the banks have agreed to forgive you your debts.')
+      .ariaLabel('Lucky day')
+      .ok('Please do it!')
+      .cancel('Sounds like a scam')
+      .targetEvent(ev);
+    $mdDialog.show(confirm).then(function() {
+      $scope.alert = 'You decided to get rid of your debt.';
+    }, function() {
+      $scope.alert = 'You decided to keep your debt.';
+    });
+  };
 
 
   });
