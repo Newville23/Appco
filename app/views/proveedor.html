@@ -1,6 +1,6 @@
-<div class="container"  layout="row" flex ng-controller="ProveedorCtrl">
-    <md-list>
-      <md-item ng-repeat="item in todos">
+<div class="container"  layout="row" flex ng-controller="ProveedorCtrl" layout-fill>
+    <md-list flex="70">
+      <md-item ng-repeat="item in proveedores">
         <md-item-content>
           <div class="md-tile-left">
               <img ng-src="{{item.face}}" class="face" alt="{{item.name}}">
@@ -12,11 +12,25 @@
               {{item.tel}}
             </p>
           </div>
+          <div class="md-tile-right">
+             <a ng-click="toggleRight()"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+          </div>
         </md-item-content>
-        <md-divider md-inset ng-if="!$last"></md-divider>
+        <md-divider md-inset ng-if="!$last" layout-fill ></md-divider>
       </md-item>
     </md-list>
-            <md-button  flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="showConfirm($event)">
+            <md-button  flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="showAdvanced($event)">
              <span class="glyphicon glyphicon glyphicon-plus" style="color: white;" aria-hidden="true"></span>
             </md-button>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" >
+      <md-toolbar >
+        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+      </md-toolbar>
+      <md-content  class="md-padding">
+        <md-button class="md-primary">
+          Close Sidenav Right
+        </md-button>
+      </md-content>
+    </md-sidenav>
 </div>
