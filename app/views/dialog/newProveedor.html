@@ -1,6 +1,7 @@
 <md-dialog aria-label="Nuevo Proveedor">
 <md-content>
-<md-subheader class="md-sticky-no-effect">Proveedor</md-subheader>
+
+<h3 style="padding-left: 0; font-weight: bold;">Proveedor</h3>
 <form>
 <md-text-float label="Razón Social" ng-model="prov.name" type="text"> </md-text-float>
 <md-text-float label="Nit" ng-model="prov.nit" class="long" type="text"> </md-text-float>
@@ -17,6 +18,6 @@
 <md-button ng-click="save(prov)" class="md-primary">
 Agregar
 </md-button>
- <pre>form = {{prov | json}}</pre>
+<!--  <pre>form = {{prov | json}}</pre> -->
 </div>
 </md-dialog>

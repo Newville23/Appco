@@ -13,7 +13,7 @@
             </p>
           </div>
           <div class="md-tile-right">
-             <a ng-click="toggleRight()"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+             <a ng-click="toggleRight($item.name)" ><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
           </div>
         </md-item-content>
         <md-divider md-inset ng-if="!$last" layout-fill ></md-divider>
@@ -25,7 +25,7 @@
 
     <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" >
       <md-toolbar >
-        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+        <h1 class="md-toolbar-tools">{{item.name}}</h1>
       </md-toolbar>
       <md-content  class="md-padding">
         <md-button class="md-primary">

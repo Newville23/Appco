@@ -7,19 +7,18 @@
  * Controller of the yoAngularApp
  */
 angular.module('yoAngularApp')
-  .controller('ProveedorCtrl', function ($scope,  $mdDialog, $mdSidenav, $log) {
+  .controller('ProveedorCtrl', function ($scope, $mdDialog, $mdSidenav, $log, $firebase) {
 
-$scope.proveedores = [
-      { face: 'images/yeoman.png', name: 'One', mail: '', tel: '3241922', nit: '900-6545-1'},
-      { face: 'images/yeoman.png', name: 'Two', mail: '', tel: '3241922', nit: '900-6545-1.'},
-      { face: 'images/yeoman.png', name: 'Three', mail: '', tel: '3241922', nit: '900-6545-1'},
+var refProveedores = new Firebase('https://solutionsapp.firebaseio.com/proveedor');
 
-    ];
+var sync = $firebase(refProveedores);
 
- $scope.toggleRight = function() {
+$scope.proveedores = sync.$asArray();
+
+ $scope.toggleRight = function(name) {
     $mdSidenav('right').toggle()
                         .then(function(){
-                          $log.debug("toggle RIGHT is done");
+                          $log.debug('toggle RIGHT is done');
                         });
   };
 
@@ -28,9 +27,9 @@ $scope.proveedores = [
      controller: DialogController,
       templateUrl: 'views/dialog/newProveedor.html',
       targetEvent: ev,
-    })
+    }) 
     .then(function(prov) {
-            $scope.proveedores.push({face: 'images/yeoman.png', name: prov.name, nit: prov.nit, tel: prov.tel, mail: prov.mail});
+            $scope.proveedores.$add({face: 'images/yeoman.png', name: prov.name, nit: prov.nit, tel: prov.tel, mail: prov.mail});
     });
   };
 

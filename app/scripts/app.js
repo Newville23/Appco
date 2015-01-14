@@ -15,6 +15,7 @@ angular
     'ngMaterial',
     'ngResource',
     'ngRoute',
+    'firebase',
     'ngSanitize',
     'ngTouch'
 
@@ -45,6 +46,10 @@ angular
       .when('/compras', {
         templateUrl: 'views/material.html',
         controller: 'MaterialesCtrl',
+      })
+      .when('/proveedores/:itemName', {
+        templateUrl: 'views/proveedor.html',
+        controller: 'InfoCtrl',
       })
       .otherwise({
         redirectTo: '/'
