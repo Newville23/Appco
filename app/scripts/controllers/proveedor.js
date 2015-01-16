@@ -16,9 +16,12 @@ var sync = $firebase(refProveedores);
 $scope.proveedores = sync.$asArray();
 
  $scope.toggleRight = function(name) {
+
+
     $mdSidenav('right').toggle()
                         .then(function(){
-                          $log.debug('toggle RIGHT is done');
+
+                          $scope.name = name;
                         });
   };
 
@@ -27,9 +30,9 @@ $scope.proveedores = sync.$asArray();
      controller: DialogController,
       templateUrl: 'views/dialog/newProveedor.html',
       targetEvent: ev,
-    }) 
+    })
     .then(function(prov) {
-            $scope.proveedores.$add({face: 'images/yeoman.png', name: prov.name, nit: prov.nit, tel: prov.tel, mail: prov.mail});
+            $scope.proveedores.$add({face: 'images/yeoman.png', name: prov.name, nit: prov.nit, dirc: prov.dicc, city: prov.city, tel: prov.tel, mail: prov.mail});
     });
   };
 

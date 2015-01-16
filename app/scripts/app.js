@@ -47,7 +47,7 @@ angular
         templateUrl: 'views/material.html',
         controller: 'MaterialesCtrl',
       })
-      .when('/proveedores/:itemName', {
+      .when('/proveedores/:itemname', {
         templateUrl: 'views/proveedor.html',
         controller: 'InfoCtrl',
       })
