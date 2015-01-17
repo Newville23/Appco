@@ -1,0 +1,22 @@
+<md-button class="{{atribute.class}}" ng-click="show()">{{atribute.label}}</md-button>
+
+
+<div ng-show = "myVar" class="pop right" ng-class="{ in: isOpen(), fade: animation() }">
+	
+
+	<div class="pop-inner">
+		<div class="pop-title">
+			<h3 >{{atribute.title}}</h3>
+			<a ng-click="close()">
+				<span class="glyphicon glyphicon-remove" ></span>
+			</a>
+		</div>
+
+		<div class="pop-content" >
+			<ul>
+				<li ng-repeat="tool in tools">{{tool.content}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+

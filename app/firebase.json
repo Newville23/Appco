@@ -1,0 +1,9 @@
+{
+  "firebase": "solutionsapp",
+  "public": "C:\\Users\\David\\Documents\\Villanueva\\AH\\dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
