@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the ahApp
  */
-angular.module('ahApp')
+angular.module('yoAngularApp')
   .controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

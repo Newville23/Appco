@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
+    <link rel="stylesheet" href="bower_components/material-design-icons/sprites/css-sprite/sprite-navigation-white.css" >
+    <link rel="stylesheet" href="bower_components/material-design-icons/sprites/css-sprite/sprite-editor-white.css" >
+    <link rel="stylesheet" href="bower_components/material-design-icons/sprites/css-sprite/sprite-content-white.css" >
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
@@ -28,25 +31,29 @@
       <md-toolbar class="md-primary md-hue-1">
         <h1 class="md-toolbar-tools"><a href="#/"> Solutions</a></h1>
       </md-toolbar>
-      <md-content >
+      <md-content ng-controller="ProveedorCtrl">
 
-        <md-button ng-href="#/proveedores" class="menu-item menu-title md-menu-item" >proveedores</md-button>
-        <md-button ng-href="#/materiales" class="menu-item menu-title md-menu-item">materiales</md-button>
-        <md-button ng-href="#/productos" class="menu-item menu-title md-menu-item">productos</md-button>
-        <md-button ng-href="#/compras" class="menu-item menu-title md-menu-item">o.compra</md-button>
+        <md-button ng-click = "close()" ng-href="#/proveedores" class="menu-item menu-title md-menu-item" >proveedores</md-button>
+        <md-button ng-click = "close()" ng-href="#/materiales" class="menu-item menu-title md-menu-item">materiales</md-button>
+        <md-button ng-click = "close()" ng-href="#/productos" class="menu-item menu-title md-menu-item">productos</md-button>
+        <md-button ng-click = "close()" ng-href="#/compras" class="menu-item menu-title md-menu-item">o.compra</md-button>
 
-        <hr>
-        <p hide-md show-gt-md class="md-padding">
-          Opciones que te ayudaran a realizar tareas cotidianas de forma optima.
+        </md-content>
+         <md-divider ng-if="!$last"></md-divider>
+        <md-content class="md-padding">
+        <p hide-md show-gt-md >
+       
+        <p><span class="text-muted">© 2015 DavidVilla, inc.</span></p>
         </p>
-      </md-content>
+        </md-content> 
+
     </md-sidenav>
 
-    <div ng-controller="ProveedorCtrl" layout="column" layout-fill tabindex="-1">
+    <div layout="column" layout-fill tabindex="-1">
     <md-toolbar class="md-primary md-hue-1"  >
-    <div layout="row">
-        <md-button md-no-ink ng-click="toggleLeft()" flex="10"  class="md-primary" hide-gt-md aria-hidden="true">
-          <img class="md-padding" src='bower_components/material-design-icons-master\navigation\1x_web\ic_menu_white_24dp.png'>
+    <div ng-controller="ProveedorCtrl" layout="row">
+        <md-button md-no-ink ng-click="toggleLeft()" flex="10"  class="md-primary " hide-gt-md aria-hidden="true">
+          <div class="icon-navigation-white icon-navigation-white-ic_menu_white_24dp "></div>
         </md-button>
         <h2 flex="40" class="md-toolbar-tools">my tag</h2>
     </div>
@@ -54,6 +61,7 @@
     <md-content ng-view="" layout="column" class="md-padding">
 
     </md-content>
+
   </div>
 
 </div>

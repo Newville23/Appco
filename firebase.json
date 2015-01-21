@@ -1,0 +1,9 @@
+{
+  "firebase": "solutionsapp",
+  "public": "/home/david/Documentos/yo-angular",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

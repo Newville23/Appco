@@ -53,4 +53,6 @@ angular.module('yoAngularApp', [
       .otherwise({
         redirectTo: '/'
       });
+
+   
   });

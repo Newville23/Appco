@@ -1,6 +1,15 @@
-<div class="container"  layout="row" flex ng-controller="ProveedorCtrl" layout-fill>
+<div class="container"  layout="column" flex ng-controller="ProveedorCtrl" layout-fill>
+   <div layout="row">
+     <md-input-container layout="100" layout-fill>
+      <label>buscar</label>
+      <input ng-model="search">
+    </md-input-container>
+    </div>
+   <!-- lista de proveedores con link a firebase-->
+  
+<div layout= "row" layout-fill>
     <md-list flex="70">
-      <md-item ng-repeat="item in proveedores">
+      <md-item ng-repeat="item in proveedores| filter:search | orderBy:'name'">
         <md-item-content>
           <div class="md-tile-left">
               <img ng-src="{{item.face}}" class="face" alt="{{item.name}}">
@@ -13,21 +22,29 @@
             </p>
           </div>
           <div class="md-tile-right">
-             <a  ng-click="toggleRight({{item}})" ><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+             <a  ng-click="toggleRight(item)" ><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
           </div>
         </md-item-content>
         <md-divider md-inset ng-if="!$last" layout-fill ></md-divider>
       </md-item>
     </md-list>
+   
+   
+    
+    <!-- Boton + para adicionar proveedores a la lista -->
+
             <md-button  flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="showAdvanced($event)">
-             <img  src='bower_components/material-design-icons-master/content/1x_web/ic_add_white_36dp.png'  aria-hidden="true">
+            <md-icon class="icon-content-white icon-content-white-ic_add_white_24dp "></md-icon>
+
             </md-button>
+
+    <!-- menu desplegable derecho para +info -->
 
     <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" >
       <md-toolbar >
       <div layout="row">
-        <h1 flex="50" class="md-toolbar-tools">{{name.name}}</h1>
-       <md-button md-no-ink  flex="50" ng-click="disableClick()"><img class="md-padding" src='bower_components/material-design-icons-master/editor/svg/design/ic_mode_edit_24px.svg'></md-button>
+        <h1 flex="80" style="color: white;" class="md-toolbar-tools">{{name.name}}</h1>
+       <md-button  flex="20" ng-click="disableClick()"><md-icon class="icon-editor-white icon-editor-white-ic_mode_edit_white_24dp"></md-icon></md-button>
     </div>
       </md-toolbar>
       <md-content  class="md-padding">
@@ -59,9 +76,17 @@
 
         </form>
 
-        <md-button class="md-primary">
-          Close Sidenav Right
+        
+        <md-button ng-hide="checked" ng-click="cancel()" class="md-primary">
+          Cancelar
         </md-button>
+        <md-button ng-hide="checked" ng-click="update()" >
+        Actualizar
+        </md-button>
+
+
       </md-content>
     </md-sidenav>
+</div>
+
 </div>

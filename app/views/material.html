@@ -1,14 +1,95 @@
-<md-content flex  ng-controller="MaterialesCtrl" class="container md-padding">
-    <md-toolbar>
-      <h2 class="md-toolbar-tools">
-        <span>Toolbar: light-theme (default)</span>
-      </h2>
-    </md-toolbar>
+<div class="container"  layout="column" flex ng-controller="MaterialesCtrl" layout-fill>
+   <div layout="row">
+     <md-input-container layout="100" layout-fill>
+      <label>buscar</label>
+      <input ng-model="search">
+    </md-input-container>
+    </div>
+   <!-- lista de materiales con link a firebase-->
   
-  <p>Facete delenit argumentum cum at. Pro rebum nostrum contentiones ad. Mel exerci tritani maiorum at, mea te audire phaedrum, mel et nibh aliquam. Malis causae equidem vel eu. Noster melius vis ea, duis alterum oporteat ea sea. Per cu vide munere fierent.
-  </p>
+<div layout= "row" layout-fill>
+    <md-list flex="90">
+      <md-item ng-repeat="item in materiales| filter:search | orderBy:'name'">
+        <md-item-content>
+          <div class="md-tile-left">
+              <img ng-src="{{item.face}}" class="face" alt="{{item.desc}}">
+          </div>
+          <div class="md-tile-content">
+            <h3>{{item.descripcion}}</h3>
+            <h4>V/unit: {{item.vunit | currency}}</h4>
+            <p>
+              {{item.proveedor}}
+            </p>
+          </div>
+          <div class="md-tile-right">
+             <a  ng-click="toggleRight(item)" ><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+          </div>
+        </md-item-content>
+        <md-divider md-inset ng-if="!$last" layout-fill ></md-divider>
+      </md-item>
+    </md-list>
+   
+   
+    
+    <!-- Boton + para adicionar materiales a la lista -->
 
- 
-  <dv-popover></dv-popover>
-  
-  </md-content>
+            <md-button  flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="showAdvanced($event)">
+            <md-icon class="icon-content-white icon-content-white-ic_add_white_24dp "></md-icon>
+
+            </md-button>
+
+    <!-- menu desplegable derecho para +info -->
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" >
+      <md-toolbar >
+      <div layout="row">
+        <h1 flex="80" style="color: white;" class="md-toolbar-tools">{{name.descripcion}}</h1>
+       <md-button  flex="20" ng-click="disableClick()"><md-icon class="icon-editor-white icon-editor-white-ic_mode_edit_white_24dp"></md-icon></md-button>
+    </div>
+      </md-toolbar>
+      <md-content  class="md-padding">
+        <form name="userForm">
+        <md-input-container flex>
+          <label>Id</label>
+          <input ng-model="name.id" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+                <md-input-container flex>
+          <label>Descripción</label>
+          <input ng-model="name.descripcion" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+                <md-input-container flex>
+          <label>Proveedor</label>
+          <input ng-model="name.proveedor" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+                <md-input-container flex>
+          <label>Fabricante</label>
+          <input ng-model="name.fabricante" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+                <md-input-container flex>
+          <label>Tipo</label>
+          <input ng-model="name.tipo" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+         <md-input-container flex>
+          <label>Unidad</label>
+          <input ng-model="name.unidad" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+        <md-input-container flex>
+          <label>V/unitario</label>
+          <input ng-model="name.vunit" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+        </form>
+
+        
+        <md-button ng-hide="checked" ng-click="cancel()" class="md-primary">
+          Cancelar
+        </md-button>
+        <md-button ng-hide="checked" ng-click="update()" >
+        Actualizar
+        </md-button>
+
+
+      </md-content>
+    </md-sidenav>
+</div>
+
+</div>
