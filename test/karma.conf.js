@@ -17,19 +17,29 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
-    files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'bower_components/angular-animate/angular-animate.js',
-      'bower_components/angular-cookies/angular-cookies.js',
-      'bower_components/angular-resource/angular-resource.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-sanitize/angular-sanitize.js',
-      'bower_components/angular-touch/angular-touch.js',
-      'app/scripts/**/*.js',
-      'test/mock/**/*.js',
-      'test/spec/**/*.js'
-    ],
+   files: [
+
+      '../yo-angular/bower_components/jquery/dist/jquery.js',
+    '../yo-angular/bower_components/angular/angular.js',
+    '../yo-angular/bower_components/bootstrap/dist/js/bootstrap.js',
+    '../yo-angular/bower_components/angular-animate/angular-animate.js',
+    '../yo-angular/bower_components/angular-cookies/angular-cookies.js',
+    '../yo-angular/bower_components/angular-resource/angular-resource.js',
+    '../yo-angular/bower_components/angular-route/angular-route.js',
+    '../yo-angular/bower_components/angular-sanitize/angular-sanitize.js',
+    '../yo-angular/bower_components/angular-touch/angular-touch.js',
+    '../yo-angular/bower_components/angular-aria/angular-aria.js',
+    '../yo-angular/bower_components/hammerjs/hammer.js',
+    '../yo-angular/bower_components/angular-material/angular-material.js',
+    '../yo-angular/bower_components/firebase/firebase.js',
+    '../yo-angular/bower_components/angularfire/dist/angularfire.js',
+     '../yo-angular/bower_components/material-design-icons/sprites/css-sprite/sprite-navigation-white.css',
+    '../yo-angular/bower_components/material-design-icons/sprites/css-sprite/sprite-editor-white.css',
+    '../yo-angular/bower_components/material-design-icons/sprites/css-sprite/sprite-content-white.css',
+
+      '../yo-angular/app/scripts/*.js',
+      '../yo-angular/app/scripts/**/*.js'
+],
 
     // list of files / patterns to exclude
     exclude: [],

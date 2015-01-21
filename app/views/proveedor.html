@@ -1,6 +1,15 @@
-<div class="container"  layout="row" flex ng-controller="ProveedorCtrl" layout-fill>
+<div class="container"  layout="column" flex ng-controller="ProveedorCtrl" layout-fill>
+   <div layout="row">
+     <md-input-container layout="100" layout-fill>
+      <label>buscar</label>
+      <input ng-model="search">
+    </md-input-container>
+    </div>
+   <!-- lista de proveedores con link a firebase-->
+  
+<div layout= "row" layout-fill>
     <md-list flex="70">
-      <md-item ng-repeat="item in proveedores">
+      <md-item ng-repeat="item in proveedores| filter:search | orderBy:'name'">
         <md-item-content>
           <div class="md-tile-left">
               <img ng-src="{{item.face}}" class="face" alt="{{item.name}}">
@@ -13,24 +22,73 @@
             </p>
           </div>
           <div class="md-tile-right">
-             <a  ng-click="toggleRight({{item}})" ><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+             <a  ng-click="toggleRight(item)" ><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
           </div>
         </md-item-content>
         <md-divider md-inset ng-if="!$last" layout-fill ></md-divider>
       </md-item>
     </md-list>
+   
+   
+    
+    <!-- Boton + para adicionar proveedores a la lista -->
+
             <md-button  flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="showAdvanced($event)">
-             <span class="glyphicon glyphicon glyphicon-plus" style="color: white;" aria-hidden="true"></span>
+            <md-icon class="icon-content-white icon-content-white-ic_add_white_24dp "></md-icon>
+
             </md-button>
+
+    <!-- menu desplegable derecho para +info -->
 
     <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" >
       <md-toolbar >
-        <h1 class="md-toolbar-tools">{{name.name}}</h1>
+      <div layout="row">
+        <h1 flex="80" style="color: white;" class="md-toolbar-tools">{{name.name}}</h1>
+       <md-button  flex="20" ng-click="disableClick()"><md-icon class="icon-editor-white icon-editor-white-ic_mode_edit_white_24dp"></md-icon></md-button>
+    </div>
       </md-toolbar>
       <md-content  class="md-padding">
-        <md-button class="md-primary">
-          Close Sidenav Right
+        <form name="userForm">
+        <md-input-container flex>
+          <label>Razón Social</label>
+          <input ng-model="name.name" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+                <md-input-container flex>
+          <label>Nit/C.C</label>
+          <input ng-model="name.nit" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+                <md-input-container flex>
+          <label>Dirección</label>
+          <input ng-model="name.dicc" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+                <md-input-container flex>
+          <label>Ciudad</label>
+          <input ng-model="name.city" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+                <md-input-container flex>
+          <label>Telefono</label>
+          <input ng-model="name.tel" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+         <md-input-container flex>
+          <label>eMail</label>
+          <input ng-model="name.mail" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+
+        </form>
+
+        
+        <md-button ng-hide="checked" ng-click="cancel()" class="md-primary">
+          Cancelar
         </md-button>
+        <md-button ng-hide="checked" ng-click="update()" >
+        Actualizar
+        </md-button>
+
+<!--         <md-button class="md-primary">
+          Close Sidenav Right
+        </md-button> -->
       </md-content>
     </md-sidenav>
+</div>
+
 </div>

@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('yoAngularApp', [
+angular.module('yoAngularApp', [
     'ngAnimate',
     'ngCookies',
     'ngMaterial',
@@ -25,7 +24,7 @@ angular
     $mdThemingProvider.theme('default')
     .primaryColor('grey', {
       'default': '500', // by default use shade 400 from the gray palette for primary intentions
-      'hue-1': '900', // use shade 100 for the <code>md-hue-1</code> class
+      'hue-1': '800', // use shade 100 for the <code>md-hue-1</code> class
       'hue-2': '700', // use shade 600 for the <code>md-hue-2</code> class
       'hue-3': '300' // use shade A100 for the <code>md-hue-3</code> class
     });
@@ -54,4 +53,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+   
   });
