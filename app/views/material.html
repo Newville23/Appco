@@ -18,7 +18,7 @@
             <h3>{{item.descripcion}}</h3>
             <h4>V/unit: {{item.vunit | currency}}</h4>
             <p>
-              {{item.proveedor}}
+              {{item.proveedor.name}}
             </p>
           </div>
           <div class="md-tile-right">
@@ -59,7 +59,7 @@
         </md-input-container>
                 <md-input-container flex>
           <label>Proveedor</label>
-          <input ng-model="name.proveedor" ng-model="checked" ng-disabled="checked">
+          <input ng-model="name.proveedor.name" ng-model="checked" ng-disabled="checked">
         </md-input-container>
                 <md-input-container flex>
           <label>Fabricante</label>

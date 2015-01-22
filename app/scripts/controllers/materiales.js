@@ -27,12 +27,21 @@
 angular.module('yoAngularApp')
   .controller('MaterialesCtrl', function( $scope, $mdDialog, $mdSidenav, $log, $firebase) {
 
+//sincronizacion de array de materiales
 var refmateriales = new Firebase('https://solutionsapp.firebaseio.com/materiales');
 
 var sync = $firebase(refmateriales);
 
 $scope.materiales = sync.$asArray();
 
+//Sincronizacion de array de proveedores 
+var refProveedores = new Firebase('https://solutionsapp.firebaseio.com/proveedor');
+
+var syncpro = $firebase(refProveedores);
+
+$scope.proveedores = syncpro.$asArray();
+
+$scope.tipos = [{tipo:'Matería prima'},{tipo: 'Producto'}];
 
 $scope.toggleLeft = function() {
     $mdSidenav('left').toggle();
@@ -55,7 +64,7 @@ $scope.toggleLeft = function() {
       targetEvent: ev,
     })
     .then(function(mat) {
-            $scope.materiales.$add({face: 'images/material.png', id: mat.id, descripcion: mat.desc, proveedor: mat.prov, fabricante: mat.fab, tipo: mat.tip, unidad: mat.unt, vunit: mat.vunit});
+            $scope.materiales.$add({face: 'images/material.png', id: mat.id, descripcion: mat.desc, proveedor: mat.prov, fabricante: mat.fab, tipo: mat.tip.tipo, unidad: mat.unt, vunit: mat.vunit});
     });
   };
 
