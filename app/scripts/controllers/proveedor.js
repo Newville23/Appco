@@ -77,9 +77,13 @@ $scope.toggleLeft = function() {
 
   };
 
+//Función de boton update info de proveedores 
+
   $scope.update = function(){
     $scope.proveedores.$save($scope.name).then(function(){
       $mdSidenav('right').close();
+      $scope.checked = true;
+
     });
   };
 
