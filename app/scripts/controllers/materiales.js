@@ -64,7 +64,7 @@ $scope.toggleLeft = function() {
       targetEvent: ev,
     })
     .then(function(mat) {
-            $scope.materiales.$add({face: 'images/material.png', id: mat.id, descripcion: mat.desc, proveedor: mat.prov, fabricante: mat.fab, tipo: mat.tip, unidad: mat.unt, vunit: mat.vunit});
+            $scope.materiales.$add({face: 'images/material.png', id: mat.id, descripcion: mat.desc, proveedor: mat.prov, fabricante: mat.fab, tipo: mat.tip.tipo, unidad: mat.unt, vunit: mat.vunit, cantidad: '0', alert: false });
     });
   };
 

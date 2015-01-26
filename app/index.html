@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="bower_components/material-design-icons/sprites/css-sprite/sprite-content-white.css" >
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css" media="all">
     <!-- endbuild -->
 
   </head>
@@ -27,7 +27,7 @@
 
     <!-- Add your site or application content here -->
 
-  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2 hidden-print" md-component-id="left" md-is-locked-open="$media('gt-md')">
       <md-toolbar class="md-primary md-hue-1">
         <h1 class="md-toolbar-tools"><a href="#/"> Solutions</a></h1>
       </md-toolbar>
@@ -35,7 +35,7 @@
 
         <md-button ng-click = "close()" ng-href="#/proveedores" class="menu-item menu-title md-menu-item" >proveedores</md-button>
         <md-button ng-click = "close()" ng-href="#/materiales" class="menu-item menu-title md-menu-item">materiales</md-button>
-        <md-button ng-click = "close()" ng-href="#/productos" class="menu-item menu-title md-menu-item">productos</md-button>
+        <md-button ng-click = "close()" ng-href="#/inventario" class="menu-item menu-title md-menu-item">Inventario</md-button>
         <md-button ng-click = "close()" ng-href="#/compras" class="menu-item menu-title md-menu-item">o.compra</md-button>
 
         </md-content>
@@ -50,7 +50,7 @@
     </md-sidenav>
 
     <div layout="column" layout-fill tabindex="-1">
-    <md-toolbar class="md-primary md-hue-1"  >
+    <md-toolbar class="md-primary md-hue-1 hidden-print"  >
     <div ng-controller="ProveedorCtrl" layout="row">
         <md-button md-no-ink ng-click="toggleLeft()" flex="10"  class="md-primary " hide-gt-md aria-hidden="true">
           <div class="icon-navigation-white icon-navigation-white-ic_menu_white_24dp "></div>

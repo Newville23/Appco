@@ -19,9 +19,10 @@
 <label>Fabricante</label>
 <input ng-model="mat.fab" class="long" type="text">
 </md-input-container>
-<md-input-container>
-<label>Tipo</label>
-<input ng-model="mat.tip" class="long" type="text">
+<md-input-container ng-controller="MaterialesCtrl">
+<select ng-model="mat.tip" ng-options="slt as slt.tipo for slt in tipos" class="form-control long" >
+	<option value=""> Tipo</option>
+</select>
 </md-input-container>
 <md-input-container>
 <label>Unidad</label>
@@ -41,6 +42,6 @@
 <md-button ng-click="save(mat)" class="md-primary">
 Agregar
 </md-button>
-<pre>form = {{mat| json}}</pre> 
+<!-- <pre>form = {{mat| json}}</pre>  -->
 </div>
 </md-dialog>
