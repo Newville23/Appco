@@ -200,3 +200,19 @@ color: #999;
     -webkit-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
 -moz-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
   }
+
+  #compras {
+    background: url(../images/menbreteup.png) no-repeat;
+    background-size:100%;
+  display:block;
+  }
+
+  @media print {
+
+    #compras {
+    background: url(../images/menbreteup.png) no-repeat !important; 
+    background-size:100% !important;
+  display:block !important;
+  }
+
+}

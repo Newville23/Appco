@@ -1,0 +1,37 @@
+<div id="compras" flex class="container center-block" style="padding-top: 150px;" layout-fill>
+	<h4>Barranquilla,</h4>
+	<h4><strong>Orden de compra No.</strong> </h4>
+
+<p>
+	SOLUCIONES DE INGENIERIA A&H S.A.S<br>
+	NIT. 900 604 801 – 0<br>
+	Dirección de envío: Calle 36 No. 25 - 53<br>
+	Barrio Montes, Barranquilla<br>
+	Teléfonos: 5 - 326 5261 - 3206137 - 317 380 7682
+</p>
+<h4 class="text-center"><strong>Información del proveedor</strong></h4>
+<div flex="50" ng-controller="MaterialesCtrl">
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Proveedor</th>
+			<th>Nit</th>
+			<th>Dirección</th>
+			<th>Telefono</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>
+			<select class="form-control long" ng-model="mat.prov" ng-options="opt as opt.name for opt in proveedores">
+			<option value=""> Proveedor</option>
+			</select>
+			</th>
+			<th>{{}}</th>
+			<th>{{}}</th>
+			<th>{{}}</th>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>

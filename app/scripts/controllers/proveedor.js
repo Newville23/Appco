@@ -58,7 +58,7 @@ $scope.toggleLeft = function() {
       targetEvent: ev,
     })
     .then(function(prov) {
-            $scope.proveedores.$add({face: 'images/yeoman.png', name: prov.name, nit: prov.nit, dirc: prov.dicc, city: prov.city, tel: prov.tel, mail: prov.mail});
+            $scope.proveedores.$add({face: 'images/user.png', name: prov.name, nit: prov.nit, dirc: prov.dicc, city: prov.city, tel: prov.tel, mail: prov.mail});
     });
   };
 

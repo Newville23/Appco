@@ -42,12 +42,12 @@ angular.module('yoAngularApp', [
         templateUrl: 'views/material.html',
         controller: 'MaterialesCtrl',
       })
-      .when('/compras', {
-        templateUrl: 'views/material.html',
+      .when('/inventario', {
+        templateUrl: 'views/inventario.html',
         controller: 'MaterialesCtrl',
       })
-      .when('/proveedores/:itemname', {
-        templateUrl: 'views/proveedor.html',
+      .when('/compras', {
+        templateUrl: 'views/ocompras.html',
         controller: 'InfoCtrl',
       })
       .otherwise({
