@@ -11,6 +11,9 @@
 </p>
 <h4 class="text-center"><strong>Información del proveedor</strong></h4>
 <div flex="50" ng-controller="MaterialesCtrl">
+
+
+<!-- TABLA DE DESCIPCION PARA PROVEEDORES-->
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -33,5 +36,34 @@
 		</tr>
 	</tbody>
 </table>
+
+<!-- TABLA DE DESCIPCION PARA PROVEEDORES-->
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Item</th>
+			<th>Descripción</th>
+			<th>Cantidad</th>
+			<th>Valor unitario</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-show="mat.prov">
+			<th>
+			
+			</th>
+			<th>
+			<select  class="form-control long" ng-model="mta" ng-options="mt as mt.descripcion for mt in materiales | filter : mat.prov.name">
+			<option value="">Material</option>
+			</select>
+			</th>
+			<th><input text-align="center" ></input></th>
+			<th>{{mta.vunit | currency}}</th>
+			<th>{{mta.vunit | currency}}</th>
+		</tr>
+	</tbody>
+</table>
+<pre>form = {{mat.prov.name}}</pre>
 </div>
 </div>
