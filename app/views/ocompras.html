@@ -51,7 +51,7 @@
 	<tbody>
 		<tr  ng-repeat="item in items">
 			<th>
-				{{item.citem}}
+				{{item.item}}
 			</th>
 			<th>
 			<select  class="form-control long" ng-model="mta" ng-options="mt as mt.descripcion for mt in materiales | filter : mat.prov.name">
@@ -68,8 +68,8 @@
 <!-- Boton + para adicionar proveedores a la lista -->
 
 	<p>
-      <md-button class=" pluss1  md-primary" ng-click="addItem()">Add</md-button>
-      <md-button class=" pluss  md-primary" ng-click="removeItem()">Remove</md-button>
+      <md-button ng-show="mat.prov" class=" pluss1 md-primary" ng-click="addItem()">Add</md-button>
+      <md-button ng-show="mat.prov" class=" pluss  md-primary" ng-click="removeItem()">Remove</md-button>
     </p>
 
 <!--             <md-button ng-show="mat.prov" flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="addItem()">

@@ -21,17 +21,17 @@ angular.module('yoAngularApp')
 
 		var syncpro = $firebase(refProveedores);
 
-		$scope.proveedores = syncpro.$asArray();
+			$scope.proveedores = syncpro.$asArray();
 
-		//variable de conteo de item
-		var citem = 1;
+		//variable de conteo de items
+		var count = 1;
 
 		$scope.items = [];
 		 
 		 $scope.addItem = function() {
 		 	
-		   	$scope.items.push({item: citem, descripcion:'', cantidad: '0', vunit:'', total:'' });
-		   	citem++;
+		   	$scope.items.push({item: count, descripcion:'', cantidad: '0', vunit:'', total:'' });
+		   	count = count + 1;
 		 };
 		 
 		 $scope.removeItem = function() {
