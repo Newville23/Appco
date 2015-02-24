@@ -30,14 +30,24 @@ angular.module('yoAngularApp')
 		 
 		 $scope.addItem = function() {
 		 	
-		   	$scope.items.push({item: count, descripcion:'', cantidad: '0', vunit:'', total:'' });
+		   	$scope.items.push({item: count, descripcion:'', cant: '0', vunit:'', total:'' });
 		   	count = count + 1;
 		 };
 		 
+		 //remove the last item from the list of materiales in the OC
+
 		 $scope.removeItem = function() {
 		    $scope.items.pop();
 		 };
 
+		$scope.getTotal = function() {
+        var total = 0;
+        angular.forEach($scope.items, function(item) {
+            total += item.cant * item.vunit;
+        });
+
+        return total;
+    };
 		    
   });
 		

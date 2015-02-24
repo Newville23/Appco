@@ -45,11 +45,11 @@
 			<th>Descripción</th>
 			<th>Cantidad</th>
 			<th>Valor unitario</th>
-			<th>Total</th>
+			<th>subtotal</th>
 		</tr>
-	</thead>
-	<tbody>
-		<tr  ng-repeat="item in items">
+	</thead>	
+	<tbody  ng-repeat="item in items">
+		<tr >
 			<th>
 				{{item.item}}
 			</th>
@@ -58,10 +58,18 @@
 			<option value="">Material</option>
 			</select>
 			</th>
-			<th ><input style="width: 60px;"  ng-model="cant"></input></th>
-			<th>{{mta.vunit | currency}}</th>
-			<th>{{mta.vunit * cant | currency}}</th>
+			<th ng-model="item.cant"><input style="width: 60px;"  ></input></th>
+			<th ng-model="item.vunit">{{mta.vunit | currency}}</th>
+			<th ng-model="item.total">{{mta.vunit * item.cant | currency}}</th>
 		</tr>
+		<tr>
+			<th class=""></th>
+			<th class=""></th>
+			<th class=""></th>
+			<th>Total</th>
+			<th>{{getTotal() | currency}}</th>
+		</tr>
+
 	</tbody>
 </table>
 
@@ -72,15 +80,7 @@
       <md-button ng-show="mat.prov" class=" pluss  md-primary" ng-click="removeItem()">Remove</md-button>
     </p>
 
-<!--             <md-button ng-show="mat.prov" flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="addItem()">
-            <md-icon class="icon-content-white icon-content-white-ic_add_white_24dp "></md-icon>
 
-            </md-button>
-
-            <md-button ng-show="mat.prov" flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="addItem()">
-            <md-icon class="icon-content-white icon-content-white-ic_remove_white_24dp "></md-icon>
-
-            </md-button> -->
-<pre>form = {{mat.prov.name}}</pre>
+<pre>form = {{items}}</pre>
 </div>
 </div>
