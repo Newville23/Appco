@@ -26,7 +26,7 @@
 	<tbody>
 		<tr>
 			<th>
-			<select class="form-control long" ng-model="mat.prov" ng-options="opt as opt.name for opt in proveedores">
+			<select class="form-control long" ng-model="mat.prov" ng-options="opt.name for opt in proveedores">
 			<option value=""> Proveedor</option>
 			</select>
 			</th>
@@ -48,19 +48,19 @@
 			<th>subtotal</th>
 		</tr>
 	</thead>	
-	<tbody  ng-repeat="item in items">
-		<tr >
+	<tbody  >
+		<tr ng-repeat="item in items" >
 			<th>
 				{{item.item}}
 			</th>
 			<th>
-			<select  class="form-control long" ng-model="mta" ng-options="mt as mt.descripcion for mt in materiales | filter : mat.prov.name">
+			<select  class="form-control long" ng-model="item.descripcion" ng-change="upitem(item)" ng-options="mt.descripcion for mt in materiales | filter : mat.prov.name" >
 			<option value="">Material</option>
 			</select>
 			</th>
-			<th ng-model="item.cant"><input style="width: 60px;"  ></input></th>
-			<th ng-model="item.vunit">{{mta.vunit | currency}}</th>
-			<th ng-model="item.total">{{mta.vunit * item.cant | currency}}</th>
+			<th ><input class="form-control" style="width: 60px;"  ng-model="item.cant"></input></th>
+			<th > {{item.vunit | currency}}</th>
+			<th > {{item.vunit * item.cant | currency}}</th>
 		</tr>
 		<tr>
 			<th class=""></th>
@@ -81,6 +81,6 @@
     </p>
 
 
-<pre>form = {{items}}</pre>
+<pre>form = {{ items | json}}</pre>
 </div>
 </div>

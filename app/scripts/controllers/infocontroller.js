@@ -21,23 +21,37 @@ angular.module('yoAngularApp')
 
 		var syncpro = $firebase(refProveedores);
 
-			$scope.proveedores = syncpro.$asArray();
+		$scope.proveedores = syncpro.$asArray();
 
 		//variable de conteo de items
 		var count = 1;
 
 		$scope.items = [];
+		$scope.titems = {};
+
+		$scope.titems = angular.copy($scope.items);
+		 
+		angular.forEach($scope.titems, function(titem){
+			$scope.items.vunit = titem.descripcion.vunit;  
+		});	
 		 
 		 $scope.addItem = function() {
 		 	
-		   	$scope.items.push({item: count, descripcion:'', cant: '0', vunit:'', total:'' });
+		   	$scope.items.push({item: count, descripcion:'', cant: '1', vunit:'', total:'' });
 		   	count = count + 1;
 		 };
 		 
+		 $scope.upitem = function(it){
+		 	console.log("Aqui estoy");
+		 	$scope.item.vunit = it.descripcion.vunit ;
+
+		 };
+
 		 //remove the last item from the list of materiales in the OC
 
 		 $scope.removeItem = function() {
 		    $scope.items.pop();
+		    count = count -1;
 		 };
 
 		$scope.getTotal = function() {
@@ -48,6 +62,6 @@ angular.module('yoAngularApp')
 
         return total;
     };
-		    
+
   });
 		

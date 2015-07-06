@@ -1,34 +1,32 @@
-<div class="container"  layout="column" flex ng-controller="MaterialesCtrl" layout-fill>
-   <div layout="row">
-     <md-input-container layout="100" layout-fill>
-      <label>buscar</label>
-      <input ng-model="search">
-    </md-input-container>
+<div  center-block" layout="column"  ng-controller="MaterialesCtrl" layout-fill>
+     
+      <div layout-padding style="height:6em; width:400px;">
+            <md-input-container >
+
+              <label>buscar Proveedor</label>
+              <input ng-model="search">
+           
+        </md-input-container>
     </div>
+     
   <!-- lista de materiales con link a firebase-->
 
-<div layout= "row" layout-fill>
-    <md-list flex="90">
-      <md-item ng-repeat="item in materiales| filter:search | orderBy:'name'">
-        <md-item-content>
-          <div class="md-tile-left">
-              <img ng-src="{{item.face}}" class="face" alt="{{item.desc}}">
-          </div>
-          <div class="md-tile-content">
-            <h3>{{item.descripcion}}</h3>
-            <h4>V/unit: {{item.vunit | currency}}</h4>
-            <p>
-              {{item.proveedor.name}}
-            </p>
-          </div>
-          <div class="md-tile-right">
-             <span class="badge "> {{item.cantidad}} </span>
-          </div>
-        </md-item-content>
-        <md-divider md-inset ng-if="!$last" layout-fill ></md-divider>
-      </md-item>
-    </md-list>
-   
+<div  layout-fill>
+ 
+           <md-list  flex="100" role="list" class="list" >
+              
+              <md-list-item class=" item " ng-repeat="item in materiales| filter:search | orderBy:'name'">
+               
+                <img ng-src="{{item.face}}" class="md-avatar face" alt="{{item.desc}}" />
+                
+                   
+                   <div flex="30" class="name"><p>{{item.descripcion}}</p></div>
+                   <div flex="25"><p>V/unit: {{item.vunit | currency}}</p></div>
+                   <div flex="20"><p> {{item.proveedor.name}}</p></div>
+                    <div class="md-tile-right"><span class="badge "> {{item.cantidad}} </span></div>
+              </md-list-item>
+              
+           </md-list>
  
 </div>
 

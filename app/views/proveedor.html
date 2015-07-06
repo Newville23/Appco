@@ -1,37 +1,39 @@
-<div class="container"  layout="column" flex ng-controller="ProveedorCtrl" layout-fill>
-   <div layout="row">
-     <md-input-container layout="100" layout-fill>
-      <label>buscar</label>
-      <input ng-model="search">
-    </md-input-container>
+<div  layout="column"  ng-controller="ProveedorCtrl" layout-fill >
+ 
+     <div layout-padding style="height:6em; width:400px;">
+            <md-input-container >
+
+              <label>buscar Proveedor</label>
+              <input ng-model="search">
+           
+        </md-input-container>
     </div>
-   <!-- lista de proveedores con link a firebase-->
-<div layout= "row" layout-fill>
-    <md-list flex="70">
-      <md-item ng-repeat="item in proveedores| filter:search | orderBy:'name'">
-        <md-item-content>
-          <div class="md-tile-left">
-              <img ng-src="{{item.face}}" class="face" alt="{{item.name}}">
-          </div>
-          <div class="md-tile-content">
-            <h3>{{item.name}}</h3>
-            <h4>NIT: {{item.nit}}</h4>
-            <p>
-              {{item.tel}}
-            </p>
-          </div>
-          <div class="md-tile-right">
-             <a ng-click="toggleRight(item)" ><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
-          </div>
-        </md-item-content>
-        <md-divider md-inset ng-if="!$last" layout-fill ></md-divider>
-      </md-item>
-    </md-list>
+     
+    
+     <div layout-fill>
+    
+      
+          <md-list  flex="100" role="list" class="list" >
+              
+              <md-list-item class=" item " ng-repeat="item in proveedores| filter:search | orderBy:'name'">
+               
+                <img ng-src="{{item.face}}" class="md-avatar face" alt="{{item.name}}" />
+                
+                   
+                   <div flex="30" class="name"><p>{{item.name}}</p></div>
+                   <div flex="25"><p>NIT: {{item.nit}}</p></div>
+                   <div flex="20"><p>{{item.tel}}</p></div>
+                
+              </md-list-item>
+              
+           </md-list>
+    
+   
 
-<!-- Boton + para adicionar proveedores a la lista -->
+     <!-- Boton + para adicionar proveedores a la lista -->
 
-            <md-button  flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="showAdvanced($event)">
-            <md-icon class="icon-content-white icon-content-white-ic_add_white_24dp "></md-icon>
+            <md-button  flex class=" pluss md-fab md-primary"  aria-label="Profile" ng-click="showAdvanced($event)">
+              <md-icon class="icon-content-white icon-content-white-ic_add_white_24dp "></md-icon>
 
             </md-button>
 
@@ -44,6 +46,7 @@
        <md-button  flex="20" ng-click="disableClick()"><md-icon class="icon-editor-white icon-editor-white-ic_mode_edit_white_24dp"></md-icon></md-button>
     </div>
       </md-toolbar>
+
       <md-content layout="column" layout-fill  class="md-padding">
         <form name="userForm">
         <md-input-container flex>
@@ -80,10 +83,10 @@
         <md-button ng-hide="checked" ng-click="update()" >
         Actualizar
         </md-button>
-
-
       </md-content>
+   
     </md-sidenav>
+     
 </div>
-
+    
 </div>

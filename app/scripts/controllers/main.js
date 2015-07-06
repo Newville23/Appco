@@ -8,10 +8,25 @@
  * Controller of the yoAngularApp
  */
 angular.module('yoAngularApp')
-	  .controller('MaintCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+	  .controller('MainCtrl', function ($scope,  $mdToast) {
+
+	  			 $scope.toastPosition = {  bottom: false, top: true, left: false, right: true }; 
+			      
+			      $scope.getToastPosition = function() {
+				    return Object.keys($scope.toastPosition)
+				      .filter(function(pos) { return $scope.toastPosition[pos]; })
+				      .join(' ');
+				  };
+			    $scope.asisToast = function() {
+				    	if ($scope.asist === true) {
+
+							    $mdToast.show(
+							      $mdToast.simple()
+							        .content('Ahora puede tomar la asistencia!')
+							        .position($scope.getToastPosition())
+							        .hideDelay(3000)
+						    );
+				    	};
+
+				  };
   });
