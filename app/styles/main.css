@@ -2,6 +2,7 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color:#E5E5E5;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -149,11 +150,13 @@ box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
   -webkit-box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
   box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
   margin-bottom: 20px;
+  padding: 0px;
 }
 
 .item {
   background-color: #fff;
   border-bottom: 1px solid #ececec;
+    height: 55px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   

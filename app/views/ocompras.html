@@ -1,6 +1,7 @@
 <div id="compras" flex class="container center-block" style="padding-top: 150px;" layout-fill>
+<md-card layout-Padding>
 	<h4>Barranquilla,</h4>
-	<h4><strong>Orden de compra No.</strong> </h4>
+	<h4><strong>Orden de compra No.</strong> {{OCid}} </h4>
 
 <p>
 	SOLUCIONES DE INGENIERIA A&H S.A.S<br>
@@ -37,7 +38,7 @@
 	</tbody>
 </table>
 
-<!-- TABLA DE DESCIPCION PARA PROVEEDORES-->
+<!-- TABLA DE DESCIPCION PARA MATERIALES-->
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -48,26 +49,26 @@
 			<th>subtotal</th>
 		</tr>
 	</thead>	
-	<tbody  >
+	<tbody>
 		<tr ng-repeat="item in items" >
 			<th>
 				{{item.item}}
 			</th>
 			<th>
-			<select  class="form-control long" ng-model="item.descripcion" ng-change="upitem(item)" ng-options="mt.descripcion for mt in materiales | filter : mat.prov.name" >
-			<option value="">Material</option>
-			</select>
+				<select  class="form-control long" ng-model="item.descripcion" ng-options="mt.descripcion for mt in materiales | filter : mat.prov.name" >
+				<option value="">Material</option>
+				</select>
 			</th>
 			<th ><input class="form-control" style="width: 60px;"  ng-model="item.cant"></input></th>
-			<th > {{item.vunit | currency}}</th>
-			<th > {{item.vunit * item.cant | currency}}</th>
+			<th > {{item.descripcion.vunit | currency}}</th>
+			<th > {{item.descripcion.vunit * item.cant | currency}}</th>
 		</tr>
 		<tr>
 			<th class=""></th>
 			<th class=""></th>
 			<th class=""></th>
 			<th>Total</th>
-			<th>{{getTotal() | currency}}</th>
+			<th>{{total() | currency}}</th>
 		</tr>
 
 	</tbody>
@@ -83,4 +84,5 @@
 
 <pre>form = {{ items | json}}</pre>
 </div>
+</md-card>
 </div>
