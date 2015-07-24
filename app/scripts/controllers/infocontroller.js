@@ -15,7 +15,7 @@ angular.module('yoAngularApp')
 
 		var syncOc = $firebase(refOc);
 
-		$scope.Ocs = sync.$asArray();
+		$scope.Ocs = syncOc.$asArray();
 
 	 //sincronizacion de array de materiales
 		var refmateriales = new Firebase('https://solutionsapp.firebaseio.com/materiales');
@@ -30,6 +30,19 @@ angular.module('yoAngularApp')
 		var syncpro = $firebase(refProveedores);
 
 		$scope.proveedores = syncpro.$asArray();
+
+   //$scopes
+
+    $scope.demo 
+    = {
+        topDirections:  'up',
+        bottomDirections: ['down', 'right'],
+        isOpen: false,
+       selectedMode: 'md-fling',
+        selectedDirection: 'up'
+      };
+
+
 
 	//variable de conteo de items
 		var count = 1;
@@ -49,17 +62,7 @@ angular.module('yoAngularApp')
 		   	count = count + 1;
 		 };
 		 
-		 $scope.showAdvanced = function(ev) {
-		 	$mdDialog.show({
-		 		controller: DialogMaterial,
-		 		templateUrl: 'views/dialog/newOc.html',
-		 		targetEvent: ev,
-		 	})
-		 	.then(function(oc) {
-
-		 		$scope.Oc.$add({ id: "1", items: oc.items, fecha: , subtotal:'', iva:'', total: oc.total()});
-		 	});
-		 };
+	
 
 		//remove the last item from the list of materiales in the OC
 
@@ -78,6 +81,17 @@ angular.module('yoAngularApp')
 	       
         	return total;
     };
+
+     $scope.saveOc = function(soc) {
+     			
+     			var total = 0;
+	        	angular.forEach($scope.items, function(item) {
+	        	total += item.cant * item.descripcion.vunit;
+	        	});
+		  		
+		  		$scope.Ocs.$add({ id: "1", items: $scope.items, fecha:'' , subtotal:'', iva:'', total: total});
+		 	
+		 };
 
   });
 		

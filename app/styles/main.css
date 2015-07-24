@@ -231,8 +231,9 @@ color: #999;
   .md-tile-content h3{
     font-weight: bold;
   }
-
-  /* button floatting proveedores*/
+  /*///////////////////*/
+  /* button floatting */
+/*///////////////////*/
 
   .pluss1{
     position: fixed; bottom: 24px; 
@@ -244,9 +245,9 @@ color: #999;
  .pluss{
     position: fixed; bottom: 24px; 
     right: 40px;
-    -webkit-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
--moz-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+
   }
+
 
   #compras {
     background: url(../images/menbreteup.png) no-repeat;

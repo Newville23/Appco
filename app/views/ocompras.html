@@ -76,10 +76,32 @@
 
 <!-- Boton + para adicionar proveedores a la lista -->
 
-	<p>
+<!-- 	<p>
       <md-button ng-show="mat.prov" class=" pluss1 md-primary" ng-click="addItem()">Add</md-button>
       <md-button ng-show="mat.prov" class=" pluss  md-primary" ng-click="removeItem()">Remove</md-button>
     </p>
+ -->
+    
+      <md-fab-speed-dial ng-show="mat.prov" class="pluss" md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}"
+                         ng-class="demo.selectedMode">
+        <md-fab-trigger>
+          <md-button aria-label="menu"  class="md-fab md-warn">
+            <md-icon class="icon-navigation-white icon-navigation-white-ic_menu_white_24dp"></md-icon>
+          </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+          <md-button aria-label="add" ng-click="addItem()" class="md-fab md-raised md-mini">
+            <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </md-button>
+          <md-button aria-label="remove" ng-click="removeItem()" class="md-fab md-raised md-mini">
+            <span class="glyphicon glyphicon glyphicon-minus" aria-hidden="true"></span>
+          </md-button>
+          <md-button aria-label="save" ng-click="saveOc(soc)" class="md-fab md-raised md-mini">
+            <span class="glyphicon glyphicon glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
+    
 
 
 <pre>form = {{ items | json}}</pre>
