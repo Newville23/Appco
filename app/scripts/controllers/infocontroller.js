@@ -33,8 +33,7 @@ angular.module('yoAngularApp')
 
    //$scopes
 
-    $scope.demo 
-    = {
+    $scope.demo  = {
         topDirections:  'up',
         bottomDirections: ['down', 'right'],
         isOpen: false,
@@ -84,12 +83,27 @@ angular.module('yoAngularApp')
 
      $scope.saveOc = function(soc) {
      			
-     			var total = 0;
+     			var d = new Date();
+
+				var mes = d.getMonth()+1;
+				var dia = d.getDate();
+
+				var fecha = d.getFullYear() + '/' +
+				    ((''+mes).length<2 ? '0' : '') + mes + '/' +
+				    ((''+dia).length<2 ? '0' : '') + dia;
+
+
+
+     			var subtotal = 0;
+     			var iva = 0;
+     			var total = 0; 
 	        	angular.forEach($scope.items, function(item) {
-	        	total += item.cant * item.descripcion.vunit;
+	        		subtotal += item.cant * item.descripcion.vunit;
+	        		iva = subtotal*0.16;
+	        		total = subtotal + iva; 
 	        	});
 		  		
-		  		$scope.Ocs.$add({ id: "1", items: $scope.items, fecha:'' , subtotal:'', iva:'', total: total});
+		  		$scope.Ocs.$add({ id: "1", items: $scope.items , fecha: fecha , subtotal: subtotal, iva: iva , total: total });
 		 	
 		 };
 
